@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tech.Care | Patient Dashboard</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <div class="app-shell">
+
+        <!-- HEADER -->
+        <header class="topbar">
+
+            <a href="#" class="brand">
+                <span class="brand-mark">+</span>
+                <span>Tech.Care</span>
+            </a>
+
+            <nav class="main-nav">
+                <a href="#" class="nav-link">▦ Overview</a>
+                <a href="#" class="nav-link active">♙ Patients</a>
+                <a href="#" class="nav-link">▤ Schedule</a>
+                <a href="#" class="nav-link">▣ Message</a>
+                <a href="#" class="nav-link">☷ Transactions</a>
+            </nav>
+
+            <div class="topbar-user">
+
+                <img src="https://fedskillstest.ct.digital/4.png"
+                    alt="Doctor" class="topbar-avatar">
+
+                <div class="topbar-user-copy">
+                    <strong>Dr. Jose Simmons</strong>
+                    <span>General Practitioner</span>
+                </div>
+
+                <button class="icon-button">⚙</button>
+                <button class="icon-button">⋮</button>
+
+            </div>
+
+        </header>
+
+
+        <!-- DASHBOARD -->
+        <main class="dashboard-grid">
+
+            <!-- LEFT SIDEBAR -->
+            <aside class="panel patients-panel">
+
+                <div class="panel-heading">
+                    <h2>Patients</h2>
+                    <button class="icon-button">⌕</button>
+                </div>
+
+                <div id="patient-list">
+                    <p>Loading patient...</p>
+                </div>
+
+            </aside>
+
+
+            <!-- CENTER CONTENT -->
+            <section class="main-column">
+
+                <!-- DIAGNOSIS HISTORY -->
+                <section class="panel diagnosis-panel">
+
+                    <h1>Diagnosis History</h1>
+
+                    <div class="chart-card">
+
+                        <div class="chart-heading">
+
+                            <div>
+                                <h2>Blood Pressure</h2>
+                                <span>Last 6 months</span>
+                            </div>
+
+                            <div class="chart-legend">
+                                <span>
+                                    <i class="legend-dot systolic"></i>
+                                    Systolic
+                                </span>
+
+                                <span>
+                                    <i class="legend-dot diastolic"></i>
+                                    Diastolic
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <div class="chart-area">
+                            <canvas id="blood-pressure-chart"></canvas>
+                        </div>
+
+                        <div class="bp-summary">
+
+                            <div class="bp-reading">
+                                <span>Systolic</span>
+                                <strong id="systolic-value">--</strong>
+                                <small id="systolic-level">Loading</small>
+                            </div>
+
+                            <div class="bp-reading">
+                                <span>Diastolic</span>
+                                <strong id="diastolic-value">--</strong>
+                                <small id="diastolic-level">Loading</small>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- VITALS -->
+                    <div class="vitals-grid">
+
+                        <article class="vital-card respiratory">
+
+                            <div class="vital-icon">♧</div>
+
+                            <span>Respiratory Rate</span>
+
+                            <strong id="respiratory-value">--</strong>
+
+                            <small id="respiratory-level">--</small>
+
+                        </article>
+
+
+                        <article class="vital-card temperature">
+
+                            <div class="vital-icon">♨</div>
+
+                            <span>Temperature</span>
+
+                            <strong id="temperature-value">--</strong>
+
+                            <small id="temperature-level">--</small>
+
+                        </article>
+
+
+                        <article class="vital-card heart">
+
+                            <div class="vital-icon">♡</div>
+
+                            <span>Heart Rate</span>
+
+                            <strong id="heart-value">--</strong>
+
+                            <small id="heart-level">--</small>
+
+                        </article>
+
+                    </div>
+
+                </section>
+
+
+                <!-- DIAGNOSTIC LIST -->
+                <section class="panel diagnostic-panel">
+
+                    <h2>Diagnostic List</h2>
+
+                    <div class="table-wrap">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>Problem/Diagnosis</th>
+                                    <th>Description</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="diagnostic-rows">
+
+                                <tr>
+                                    <td colspan="3">Loading...</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+
+            <!-- RIGHT SIDEBAR -->
+            <aside class="right-column">
+
+                <!-- PATIENT PROFILE -->
+                <section class="panel profile-panel">
+
+                    <div class="profile-top">
+
+                        <img id="patient-photo"
+                            src="https://fedskillstest.ct.digital/4.png"
+                            alt="Jessica Taylor"
+                            class="profile-photo">
+
+                        <h2 id="patient-name">Jessica Taylor</h2>
+
+                    </div>
+
+
+                    <div class="patient-details">
+
+                        <div class="detail-row">
+                            <span>▣</span>
+                            <div>
+                                <small>Date Of Birth</small>
+                                <strong id="patient-dob">--</strong>
+                            </div>
+                        </div>
+
+
+                        <div class="detail-row">
+                            <span>⚥</span>
+                            <div>
+                                <small>Gender</small>
+                                <strong id="patient-gender">--</strong>
+                            </div>
+                        </div>
+
+
+                        <div class="detail-row">
+                            <span>☎</span>
+                            <div>
+                                <small>Contact Info.</small>
+                                <strong id="patient-phone">--</strong>
+                            </div>
+                        </div>
+
+
+                        <div class="detail-row">
+                            <span>☎</span>
+                            <div>
+                                <small>Emergency Contacts</small>
+                                <strong id="patient-emergency">--</strong>
+                            </div>
+                        </div>
+
+
+                        <div class="detail-row">
+                            <span>▤</span>
+                            <div>
+                                <small>Insurance Provider</small>
+                                <strong id="patient-insurance">--</strong>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <button class="primary-button">
+                        Show All Information
+                    </button>
+
+                </section>
+
+
+                <!-- LAB RESULTS -->
+                <section class="panel lab-panel">
+
+                    <div class="panel-heading">
+                        <h2>Lab Results</h2>
+                    </div>
+
+                    <ul id="lab-results">
+                        <li>Loading...</li>
+                    </ul>
+
+                </section>
+
+            </aside>
+
+        </main>
+
+    </div>
+
+
+    <!-- CHART.JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="js/chart.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
